@@ -1,1 +1,2 @@
 # myPython
+print('hello world')
