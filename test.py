@@ -1,6 +1,5 @@
 import os
 # part add a new line
-# aaaa
 text = os.popen('dir /b').read()
 print (text)
 
