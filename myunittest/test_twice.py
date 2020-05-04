@@ -2,6 +2,8 @@
 import unittest
 from selenium import webdriver
 
+'''运行以下代码，测试固件只会执行一次，即留浏览器只会打开关闭一次，并且两个测试函数的执行按照suite中添加的顺序执行。'''
+
 
 class BaiduTest(unittest.TestCase):
 
