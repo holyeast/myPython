@@ -13,8 +13,15 @@ from unit.HTMLTestRunner import HTMLTestRunner
 # unittest suite 批量添加测试用例，逐个进行执行
 suite = unittest.TestSuite()
 suite.addTest(TestBaidu('test_search'))
+suite.addTest(TestBaidu('test_search1'))
+suite.addTest(TestBaidu('test_search2'))
+suite.addTest(TestBaidu('test_search3'))
 suite.addTest(TestBaidu('test_error'))
 suite.addTest(TestTencent('test_about_com_message'))
+suite.addTest(TestTencent('test_about_com_message1'))
+suite.addTest(TestTencent('test_mess_message'))
+suite.addTest(TestTencent('test_mess_message2'))
+suite.addTest(TestTencent('test_tencent_fail'))
 
 # 测试报告 title
 xxx_title = u"EMC项目Web自动化测试报告"

@@ -15,17 +15,32 @@ logger = Logger(logger="Login").getlog()
 
 class TestBaidu(unittest.TestCase):
     """百度网站WEB测试"""
+    @classmethod
+    def setUpClass(cls):
+        browser = BrowserEngine(cls)
+        cls.driver = browser.open_browser(cls, url="https://www.baidu.com") # 读取浏览器类型
 
-    def setUp(self):
-        browser = BrowserEngine(self)
-        self.driver = browser.open_browser(self, url="https://www.baidu.com") # 读取浏览器类型
-
-
-    def tearDown(self):
-        self.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
     # 百度搜索
     def test_search(self):
+        """百度搜索"""
+        homepage = BaiduPage(self.driver)
+        homepage.search(u"腾讯视频")
+
+    def test_search1(self):
+        """百度搜索"""
+        homepage = BaiduPage(self.driver)
+        homepage.search(u"腾讯视频")
+
+    def test_search2(self):
+        """百度搜索"""
+        homepage = BaiduPage(self.driver)
+        homepage.search(u"腾讯视频")
+
+    def test_search3(self):
         """百度搜索"""
         homepage = BaiduPage(self.driver)
         homepage.search(u"腾讯视频")

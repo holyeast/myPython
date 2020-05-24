@@ -435,7 +435,7 @@ class Template_mixin(object):
         <h1>%(title)s</h1>
     %(parameters)s
     </div>
-    <div style="float: left;width:50%%;"><p class='description'>%(description)s</p></div>
+    <div style="float: left;width:50%%;font-size: 16px;"><p class='description'>%(description)s</p></div>
     <div id="chart" style="width:100%%;height:400px;float:right;"></div>
 """  # variables: (title, parameters, description)
 
@@ -447,7 +447,7 @@ class Template_mixin(object):
     #
 
     REPORT_TMPL = u"""
-    <div class="btn-group btn-group-sm">
+    <div class="btn-group btn-group-sm", style="float: left;">
         <button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
         <button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
         <button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
