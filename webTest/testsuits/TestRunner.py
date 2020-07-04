@@ -5,18 +5,21 @@ import unittest
 import os
 import time
 from selenium import webdriver
+from testsuits import test_baidu
 from testsuits.test_baidu import TestBaidu
 from  testsuits.test_tencent import TestTencent
 from unit.HTMLTestRunner import HTMLTestRunner
 
 
+op = (TestBaidu.__dict__)
+test_names = [i for i in op.keys() if 'test' in i]
 # unittest suite 批量添加测试用例，逐个进行执行
 suite = unittest.TestSuite()
-suite_class = unittest.TestLoader().loadTestsFromTestCase(TestBaidu)
-print(suite_class)
-suite_discover = unittest.TestLoader().discover(start_dir='testsuits', pattern='test_*.py')
-print(suite_discover)
-suite.addTests(suite_baidu)
+suite_name = unittest.TestLoader().loadTestsFromNames(test_names, module=TestBaidu)
+print(suite_name)
+# suite_class = unittest.TestLoader().loadTestsFromTestCase(TestBaidu)
+# suite_discover = unittest.TestLoader().discover(start_dir='testsuits', pattern='test_*.py')
+suite.addTests(suite_name)
 
 
 # 测试报告 title
