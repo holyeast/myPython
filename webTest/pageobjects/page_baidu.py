@@ -15,13 +15,18 @@ class BaiduPage(BasePage):
 
     input_box_xpath = "xpath=>//input[@name='wd']"
     btn_sure_xpath = "xpath=>//input[@value='百度一下']"
+    # 首页
+    home_page_xpath = "xpath=>//a[text()='百度首页']"
+
+    def home_page(self):
+        self.click(self.home_page_xpath)
+        time.sleep(1)
+        print("返回百度首页")
 
     def search(self, keyword):
         self.send_keys(self.input_box_xpath, keyword)
         self.click(self.btn_sure_xpath)
 
-    def error_test(self):
-        self.send_keys(self.btn_sure_xpath)
 
 
 

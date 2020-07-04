@@ -12,16 +12,12 @@ from unit.HTMLTestRunner import HTMLTestRunner
 
 # unittest suite 批量添加测试用例，逐个进行执行
 suite = unittest.TestSuite()
-suite.addTest(TestBaidu('test_search'))
-suite.addTest(TestBaidu('test_search1'))
-suite.addTest(TestBaidu('test_search2'))
-suite.addTest(TestBaidu('test_search3'))
-suite.addTest(TestBaidu('test_error'))
-suite.addTest(TestTencent('test_about_com_message'))
-suite.addTest(TestTencent('test_about_com_message1'))
-suite.addTest(TestTencent('test_mess_message'))
-suite.addTest(TestTencent('test_mess_message2'))
-suite.addTest(TestTencent('test_tencent_fail'))
+suite_class = unittest.TestLoader().loadTestsFromTestCase(TestBaidu)
+print(suite_class)
+suite_discover = unittest.TestLoader().discover(start_dir='testsuits', pattern='test_*.py')
+print(suite_discover)
+suite.addTests(suite_baidu)
+
 
 # 测试报告 title
 xxx_title = u"EMC项目Web自动化测试报告"
@@ -42,7 +38,7 @@ if not isExists:
 if __name__ == '__main__':
     # open(HemlFile) 创建 html 测试报告
     with open(HtmlFile,"wb") as report:
-        runner = HTMLTestRunner(stream=report,title=xxx_title,description=u"测试结果")
+        runner = HTMLTestRunner(stream=report,title=xxx_title,description=u"测试结果", verbosity=2)
         runner.run(suite)
 
     # driver = webdriver.PhantomJS()

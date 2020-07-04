@@ -36,11 +36,11 @@ class BrowserEngine(object):
             logger.info("Starting IE browser")
 
         try:
+            driver.maximize_window()
             driver.get(url) # 访问 url 地址
             logger.info("Open url %s" % url)
             driver.implicitly_wait(10)
             logger.info("Set implicitly wait 10 seconds")
-            driver.maximize_window()
             return driver
         except Exception as e:
             logger.info()

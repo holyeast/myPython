@@ -16,6 +16,7 @@ class TestTencent(unittest.TestCase):
     def setUpClass(cls):
         browser = BrowserEngine(cls)
         cls.driver = browser.open_browser(cls, url="https://www.tencent.com") # 读取浏览器类型
+        cls.tencentpage = TentcentPage(cls.driver)
 
     @classmethod
     def tearDownClass(cls):
@@ -24,28 +25,23 @@ class TestTencent(unittest.TestCase):
     # 查看公司简介
     def test_about_com_message(self):
         """查看公司简介"""
-        tencentpage = TentcentPage(self.driver)
-        tencentpage.get_about_con_text(text=u"腾讯以技术丰富互联网用户的生活。")
+        self.tencentpage.get_about_con_text(text=u"腾讯以技术丰富互联网用户的生活。")
 
     def test_about_com_message1(self):
         """查看公司简介"""
-        tencentpage = TentcentPage(self.driver)
-        tencentpage.get_about_con_text(text=u"腾讯以技术丰富互联网用户的生活。")
+        self.tencentpage.get_about_con_text(text=u"腾讯以技术丰富互联网用户的生活。")
 
     def test_mess_message(self):
         """查看公司简介"""
-        tencentpage = TentcentPage(self.driver)
-        tencentpage.get_mess_text(text=u"用户为本，科技向善")
+        self.tencentpage.get_mess_text(text=u"用户为本，科技向善")
 
     def test_mess_message2(self):
         """查看公司简介"""
-        tencentpage = TentcentPage(self.driver)
-        tencentpage.get_mess_text(text=u"用户为本，科技向善")
+        self.tencentpage.get_mess_text(text=u"用户为本，科技向善")
 
     def test_tencent_fail(self):
         """查看公司简介"""
-        tencentpage = TentcentPage(self.driver)
-        tencentpage.get_mess_text(text=u"腾讯啊手动阀")
+        self.tencentpage.get_mess_text(text=u"腾讯啊手动阀")
 
 
 

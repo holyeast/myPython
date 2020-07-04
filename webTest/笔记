@@ -1,0 +1,18 @@
+unittest.TestLoader()提供了创建test suite的几种方法：
+TestLoader().loadTestsFromTestCase(testCaseClass)
+TestLoader().loadTestsFromModule(module, pattern=None)
+TestLoader().loadTestsFromName(name, module=None)
+TestLoader().loadTestsFromNames(name, module=None)
+TestLoader().discover
+下面一一列举其用法，并会感叹unittest的精妙之处。
+
+loadTestsFromTestCase(testCaseClass)——按照类中各方法名字母顺序排序
+testCaseClass必须是TestCase的子类（或孙类也行）
+loadTestsFromModule(module, pattern=None)
+test case所在的module
+loadTestsFromName(name, module=None)
+name是一个string，string需要是是这种格式的“module.class.method”
+loadTestsFromNames(name, module=None)
+names是一个list，用法与上同
+discover(start_dir, pattern=’test*.py’, top_level_dir=None)
+从python文件中获取test cases

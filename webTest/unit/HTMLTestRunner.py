@@ -636,7 +636,7 @@ class _TestResult(TestResult):
                     sys.stderr.write(str(subtest))
                     sys.stderr.write('\n')
                 else:
-                    sys.stderr.write('F')
+                    sys.stderr.write('FAIL')
             else:
                 self.error_count += 1
                 errors = self.errors
@@ -649,7 +649,7 @@ class _TestResult(TestResult):
                     sys.stderr.write(str(subtest))
                     sys.stderr.write('\n')
                 else:
-                    sys.stderr.write('E')
+                    sys.stderr.write('ERROR')
             self._mirrorOutput = True
         else:
             self.subtestlist.append(subtest)
@@ -662,12 +662,12 @@ class _TestResult(TestResult):
                 sys.stderr.write(str(subtest))
                 sys.stderr.write('\n')
             else:
-                sys.stderr.write('.')
+                sys.stderr.write('PASS')
 
 
 class HTMLTestRunner(Template_mixin):
 
-    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None):
+    def __init__(self, stream=sys.stdout, verbosity=2, title=None, description=None):
         self.stream = stream
         self.verbosity = verbosity
         if title is None:

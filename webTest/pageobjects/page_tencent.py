@@ -21,11 +21,12 @@ class TentcentPage(BasePage):
     about_con_btn_xpath = "xpath=>//a[@href='https://www.tencent.com/zh-cn/about.html#about-con-1']"
     # 简介内容
     text_about_con_xpath = "xpath=>//div[@class='brief-text-box']/h4"
-    # 远景和使命
+    # 愿景和使命
     text_mess_xpath = "xpath=>//div[@class='r-mess mess']/p"
 
 
     def get_about_con_text(self, text):
+        """腾讯-公司简介"""
         self.hover_mouse(self.about_btn_xpath)
         time.sleep(1)
         self.click(self.about_con_btn_xpath)
@@ -33,6 +34,7 @@ class TentcentPage(BasePage):
         assert result == text
 
     def get_mess_text(self, text):
+        """腾讯-愿景和使命"""
         result = self.find_element(self.text_mess_xpath).text
         assert result == text
 
