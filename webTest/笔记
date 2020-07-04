@@ -6,13 +6,22 @@ TestLoader().loadTestsFromNames(name, module=None)
 TestLoader().discover
 下面一一列举其用法，并会感叹unittest的精妙之处。
 
-loadTestsFromTestCase(testCaseClass)——按照类中各方法名字母顺序排序
-testCaseClass必须是TestCase的子类（或孙类也行）
-loadTestsFromModule(module, pattern=None)
-test case所在的module
-loadTestsFromName(name, module=None)
-name是一个string，string需要是是这种格式的“module.class.method”
-loadTestsFromNames(name, module=None)
-names是一个list，用法与上同
-discover(start_dir, pattern=’test*.py’, top_level_dir=None)
+1、loadTestsFromTestCase(testCaseClass)——按照类中各方法名字母顺序排序
+    testCaseClass必须是TestCase的子类（或孙类也行）
+2、loadTestsFromModule(module, pattern=None)
+    test case所在的module
+3、loadTestsFromName(name, module=None)
+    name是一个string，string需要是是这种格式的“module.class.method”
+4、loadTestsFromNames(name, module=None)——按照names列表的顺序排序
+    names是一个list，用法与上同
+    module是获取用例方法的模块，该模块必须已导入
+    例子一，module为导入的testcase类：
+    from testsuits.test_baidu import TestBaidu
+    suite_names = unittest.TestLoader().loadTestsFromNames(['test_search, test_a_search1'], module=TestBaidu)
+    例子二， module为导入的test模块：
+    from testsuits import test_baidu
+    suite_names = unittest.TestLoader().loadTestsFromNames(['TestBaidu.test_search, TestBaidu.test_a_search1'], module=test_baidu)
+    例子三，不指定module：
+    suite_names = unittest.TestLoader().loadTestsFromNames(['test_baidu.TestBaidu.test_search'])
+5、discover(start_dir, pattern=’test*.py’, top_level_dir=None)
 从python文件中获取test cases
