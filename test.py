@@ -5,6 +5,7 @@ print (text)
 
 def test(a, b):
     print(a+b)
+    print("hahah")
 
 if __name__ == '__main__':
     test("a", "b")
